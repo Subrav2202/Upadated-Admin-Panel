@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.profileicons:hover{
+color:#4098c7;
+}
+.profileicons:hover{
+  background-color:#e9f2f7;
+  }
+  .menuicons:hover{
+    border:2px ridge;
+    border-radius: 10px;
+  }
