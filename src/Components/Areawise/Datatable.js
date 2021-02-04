@@ -11,8 +11,8 @@ import "./Table.css";
 import { BiDownArrowAlt, BiUpArrowAlt } from "react-icons/bi";
 
 function Datatable({ id }) {
-  const columns = useMemo(() => COLUMNS[id], []);
-  const data = useMemo(() => Datatabledata[id], []);
+  const columns = useMemo(() => COLUMNS[id], [id]);
+  const data = useMemo(() => Datatabledata[id], [id]);
 
   const {
     getTableProps,

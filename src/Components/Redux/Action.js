@@ -29,7 +29,7 @@ export const addProfile = (userObj) => {
       .then((response) => {
         dispatch({
           type: "ADD_USER",
-          payload: response,
+          payload: response.data,
         });
       })
       .catch((error) => {
@@ -51,7 +51,7 @@ export const addReason = (userObj) => {
       .then((response) => {
         dispatch({
           type: "ADD_REASON",
-          payload: response,
+          payload: response.data,
         });
       })
       .catch((error) => {
@@ -73,12 +73,29 @@ export const addMessage = (userObj) => {
       .then((response) => {
         dispatch({
           type: "ADD_MESSAGE",
-          payload: response,
+          payload: response.data,
         });
       })
       .catch((error) => {
         console.log(error);
       });
     }
+  };
+};
+
+export const Logindetails = (userObj) => {
+  console.log(userObj);
+  return (dispatch) => {
+    axios
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/", userObj)
+      .then((response) => {
+        dispatch({
+          type: "ADD_LOGIN",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 };
