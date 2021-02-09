@@ -87,7 +87,7 @@ export const Logindetails = (userObj) => {
   console.log(userObj);
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/", userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",userObj)
       .then((response) => {
         dispatch({
           type: "ADD_LOGIN",
@@ -99,3 +99,53 @@ export const Logindetails = (userObj) => {
       });
   };
 };
+
+export const addCategory = (userObj) => {
+  return (dispatch) => {
+    axios
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",userObj)
+      .then((response) => {
+        dispatch({
+          type: "ADD_CATEGORY",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+export const addCategorydata = (userObj) => {
+  return (dispatch) => {
+    axios
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",userObj)
+      .then((response) => {
+        dispatch({
+          type: "ADD_CATEGORYDATA",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+export const addCategoryReason = (userObj) => {
+  return (dispatch) => {
+    axios
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",userObj)
+      .then((response) => {
+        dispatch({
+          type: "ADD_CATEGORYREASON",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+

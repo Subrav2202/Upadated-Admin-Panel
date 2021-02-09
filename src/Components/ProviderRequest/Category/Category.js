@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../Header/Header";
-import Sidebar from "../Sidebar/Sidebar";
+import Header from "../../Header/Header";
+import Sidebar from "../../Sidebar/Sidebar";
 import Pageheader from "./Pageheader";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import Datatable from "./Datatable";
+import Datatable from "../../Areawise/Datatable";
 
-function Areawise() {
+function Category() {
   return (
     <div>
       <Header />
@@ -24,15 +24,16 @@ function Areawise() {
             style={{ backgroundColor: "#ebfaf8" }}
           >
             <h4 className="d-flex justify-content-start pt-2">
-              Areawise Data Tables
+              Category Data Tables
             </h4>
             <hr />
             <div className="d-flex">
               <p>Center Request</p>
               <p className="mx-1">{">"}</p>
-              <p>Areawise Data Table</p>
+              <p>Category Data Table</p>
             </div>
-            <Pageheader />
+            <hr/>
+             <Pageheader />
 
             <Row>
               <Col md={12}>
@@ -41,7 +42,7 @@ function Areawise() {
                   <Card.Body>
                     <Row>
                       <Col md={12}>
-                        <Datatable id={0}/>
+                        <Datatable id={2}/>
                       </Col>
                     </Row>
                   </Card.Body>
@@ -55,4 +56,4 @@ function Areawise() {
   );
 }
 
-export default Areawise;
+export default Category;

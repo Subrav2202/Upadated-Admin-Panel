@@ -15,7 +15,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <div className="properties">
+    <div className="properties" style={{position:"fixed"}}>
       <h6 className="p-3 d-flex justify-content-start">Menu</h6>
       <Accordion>
         <Card className="cardbg">

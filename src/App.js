@@ -5,7 +5,7 @@ import  Login  from "./Components/Login/Login";
 import Areawise from "./Components/Areawise/Areawise";
 import  Service  from "./Components/Service/Service";
 import Divisional from "./Components/Divisional/Divisional";
-import Providerrequest from "./Components/ProviderRequest/Providerrequest";
+import Category from "./Components/ProviderRequest/Category/Category";
 import Regional from "./Components/Regional/Regional"
 import Servicenters from "./Components/Servicecneters/Servicecenters"
 import  Dashboard  from "./Components/Dashboard/Dashboard";
@@ -16,7 +16,7 @@ function App() {
       <Route exact path="/areawise" component={Areawise} />
       <Route exact path="/service" component={Service} />
       <Route exact path="/divisional" component={Divisional} />
-      <Route exact path="/provider request" component={Providerrequest} />
+      <Route exact path="/category" component={Category} />
       <Route exact path="/regional" component={Regional} />
       <Route exact path="/servicenters" component={Servicenters} />
       <Route exact path="/dashboard" component={Dashboard} />

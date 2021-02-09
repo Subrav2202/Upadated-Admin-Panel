@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { Form, Card, Container, Row, Col, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import Areawise from "../Areawise/Areawise"
 import { useDispatch } from "react-redux";
 import { Logindetails } from "../Redux/Action";
 import image from "./Assets/login.svg";

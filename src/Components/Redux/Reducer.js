@@ -50,7 +50,7 @@ const Reducer = (state = {}, action) => {
       console.log(login);
       if (login.status === "success") {
          alert(login.msg);
-        
+         sessionStorage.setItem("token",login.token);
       } else if (login.status === "unsuccess") {
         alert(login.error);
       } else {
@@ -58,6 +58,43 @@ const Reducer = (state = {}, action) => {
       }
 
       return { ...state, login };
+
+      case "ADD_CATEGORY":
+      const Category = action.payload;
+      console.log('clicked');
+      if (Category.status === "success") {
+         alert(Category.msg);
+      } else if (Category.status === "unsuccess") {
+        alert(Category.error);
+      } else {
+        alert("Problem in adding Category. Please try after some times.");
+      }
+      return { ...state, Category };
+
+      case "ADD_CATEGORYDATA":
+        const Categorydata = action.payload;
+        console.log('clicked');
+        if (Categorydata.status === "success") {
+           alert(Categorydata.msg);
+        } else if (Categorydata.status === "unsuccess") {
+          alert(Categorydata.error);
+        } else {
+          alert("Problem in adding Categorydata. Please try after some times.");
+        }
+        return { ...state, Categorydata };
+
+        case "ADD_CATEGORYREASON":
+          const Categoryreason = action.payload;
+          console.log('clicked');
+          if (Categoryreason.status === "success") {
+             alert(Categoryreason.msg);
+          } else if (Categoryreason.status === "unsuccess") {
+            alert(Categoryreason.error);
+          } else {
+            alert("Problem in adding Categoryreason. Please try after some times.");
+          }
+          return { ...state, Categoryreason };
+  
 
     default:
       return state;
