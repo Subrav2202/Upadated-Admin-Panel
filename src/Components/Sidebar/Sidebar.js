@@ -117,7 +117,7 @@ function Sidebar() {
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="3">
             <Card.Body className="cardbdalgn">
-              <NavLink exact to="/centers">
+              <NavLink exact to="/All centers">
                 <p>All Center's</p>
               </NavLink>
             </Card.Body>
@@ -142,7 +142,7 @@ function Sidebar() {
               <NavLink exact to="/category">
                 <p>Category</p>
               </NavLink>
-              <NavLink exact to="/provider request">
+              <NavLink exact to="/service provider">
                 <p>Service Provider</p>
               </NavLink>
             </Card.Body>

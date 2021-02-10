@@ -94,7 +94,43 @@ const Reducer = (state = {}, action) => {
             alert("Problem in adding Categoryreason. Please try after some times.");
           }
           return { ...state, Categoryreason };
-  
+
+          case "ADD_PROVIDER":
+            const provider = action.payload;
+            console.log('clicked');
+            if (provider.status === "success") {
+               alert(provider.msg);
+            } else if (provider.status === "unsuccess") {
+              alert(provider.error);
+            } else {
+              alert("Problem in adding provider.");
+            }
+            return { ...state, provider };
+          
+            case "ADD_PROVIDER_REASON":
+              const providerreason = action.payload;
+              console.log('clicked');
+              if (providerreason.status==="success") {
+                 alert(providerreason.msg);
+              } else if (providerreason.status==="unsuccess") {
+                alert(providerreason.error);
+              } else {
+                alert("Problem in adding provider reason.");
+              }
+              return { ...state, providerreason };
+
+              case "ADD_ALLCENTERS_REASON":
+                const Allcentersreason = action.payload;
+                console.log('clicked');
+                if (Allcentersreason.status==="success") {
+                   alert(Allcentersreason.msg);
+                } else if (Allcentersreason.status==="unsuccess") {
+                  alert(Allcentersreason.error);
+                } else {
+                  alert("Problem in adding Allcenters reason.");
+                }
+                return { ...state, Allcentersreason };
+    
 
     default:
       return state;

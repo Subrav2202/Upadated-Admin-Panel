@@ -204,7 +204,6 @@ e.preventDefault();
                 <Col md={12} className="my-3">
                   <label>Upload Image</label>
                   <input
-                    name="file"
                     type="file"
                     onChange={categoryHandler}
                     name="img"
