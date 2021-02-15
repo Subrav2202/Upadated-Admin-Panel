@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Container,Modal } from "react-bootstrap";
 import user from "./Assets/user.jpg";
-import { FaRegWindowClose, FaEdit } from "react-icons/fa";
-import { addCategory,addCategorydata,addCategoryReason} from "../../Redux/Action";
+import {FaEdit } from "react-icons/fa";
+import { addCategorydata,addCategoryReason} from "../../Redux/Action";
 function Pageheader() {
   /*============================================states to close the Modal======================== */
 
@@ -11,16 +11,16 @@ function Pageheader() {
     inputNormal: { display: "inline" },
     inputClicked: { display: "none" },
   };
-  const [state1, setstate1] = useState({ clicked: true });
+  // const [state1, setstate1] = useState({ clicked: true });
   const [state2, setstate2] = useState({ clicked: true });
   const [state3, setstate3] = useState({ clicked: true });
   const [state4, setstate4] = useState({ clicked: true });
   const [state5, setstate5] = useState({ clicked: true });
   const [state6, setstate6] = useState({ clicked: true });
-  const styleHandler1 = (e) => {
-    e.preventDefault();
-    setstate1({ clicked: false });
-  };
+  // const styleHandler1 = (e) => {
+  //   e.preventDefault();
+  //   setstate1({ clicked: false });
+  // };
   const styleHandler2 = (e) => {
     e.preventDefault();
     setstate2({ clicked: false });
@@ -55,33 +55,33 @@ function Pageheader() {
 
   /*===========================================state handeling of 1st modal================= */
 
-  const [categorystate, setcategorystate] = useState({
-    "Category Name": "",
-    "Category Description": "",
-    Place: "",
-    Options: "",
-  });
-  const dispatch = useDispatch();
-  const categoryHandler = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    let files = e.target.files;
-    const formData = new FormData();
-    formData.append("img",files);
-    setcategorystate({ ...categorystate, [name]:value});
-  };
+  // const [categorystate, setcategorystate] = useState({
+  //   "Category Name": "",
+  //   "Category Description": "",
+  //   Place: "",
+  //   Options: "",
+  // });
+   const dispatch = useDispatch();
+  // const categoryHandler = (e) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+  //   let files = e.target.files;
+  //   const formData = new FormData();
+  //   formData.append("img",files);
+  //   setcategorystate({ ...categorystate, [name]:value});
+  // };
 
-  const saveCategory = (e) => {
-    e.preventDefault();
-    dispatch(addCategory(categorystate));
-    setcategorystate({
-      "Category Name": "",
-      "Category Description": "",
-      Place: "",
-      Options: "",
-      "Category image": "",
-    });
-  };
+  // const saveCategory = (e) => {
+  //   e.preventDefault();
+  //   dispatch(addCategory(categorystate));
+  //   setcategorystate({
+  //     "Category Name": "",
+  //     "Category Description": "",
+  //     Place: "",
+  //     Options: "",
+  //     "Category image": "",
+  //   });
+  // };
 
 /*===========================================end of state handeling of 1st modal================= */ 
 /*===========================================state handeling of 2nd modal================= */
@@ -140,98 +140,98 @@ e.preventDefault();
 
   return (
     <Container fluid>
-      <Modal.Dialog
-        size="lg"
-        style={state1.clicked ? Styles.inputNormal : Styles.inputClicked}
-      >
-        <form onSubmit={saveCategory}>
-          <Modal.Header>
-            <Modal.Title>Categories</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Container>
-              <Row>
-                <Col md={6}>
-                  <label>Category Name</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Category Name"
-                    name="Category Name"
-                    onChange={categoryHandler}
-                  />
-                </Col>
-                <Col md={6}>
-                  <label>Category Description</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Category Description"
-                    name="Category Description"
-                    onChange={categoryHandler}
-                  />
-                </Col>
+      {/*</Container><Modal.Dialog
+      //   size="lg"
+      //   style={state1.clicked ? Styles.inputNormal : Styles.inputClicked}
+      // >
+      //   <form onSubmit={saveCategory}>
+      //     <Modal.Header>
+      //       <Modal.Title>Categories</Modal.Title>
+      //     </Modal.Header>
+      //     <Modal.Body>
+      //       <Container>
+      //         <Row>
+      //           <Col md={6}>
+      //             <label>Category Name</label>
+      //             <input
+      //               className="form-control"
+      //               type="text"
+      //               placeholder="Category Name"
+      //               name="Category Name"
+      //               onChange={categoryHandler}
+      //             />
+      //           </Col>
+      //           <Col md={6}>
+      //             <label>Category Description</label>
+      //             <input
+      //               className="form-control"
+      //               type="text"
+      //               placeholder="Enter Category Description"
+      //               name="Category Description"
+      //               onChange={categoryHandler}
+      //             />
+      //           </Col>
 
-                <Col md={6}>
-                  <label>Category Type</label>
-                  <select
-                    className="form-control"
-                    name="Place"
-                    onChange={categoryHandler}
-                  >
-                    <option value="select">--select--</option>
-                    <option value="Home">Home</option>
-                    <option value="Public">Public Places</option>
-                    <option value="Office">Office</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </Col>
+      //           <Col md={6}>
+      //             <label>Category Type</label>
+      //             <select
+      //               className="form-control"
+      //               name="Place"
+      //               onChange={categoryHandler}
+      //             >
+      //               <option value="select">--select--</option>
+      //               <option value="Home">Home</option>
+      //               <option value="Public">Public Places</option>
+      //               <option value="Office">Office</option>
+      //               <option value="Other">Other</option>
+      //             </select>
+      //           </Col>
 
-                <Col md={6}>
-                  <label>Option</label>
-                  <select
-                    className="form-control"
-                    name="Options"
-                    onChange={categoryHandler}
-                  >
-                    <option value="select">--select--</option>
-                    <option value="None">None</option>
-                    <option value="Quantity">Quantity</option>
-                    <option value="List">List</option>
-                  </select>
-                </Col>
+      //           <Col md={6}>
+      //             <label>Option</label>
+      //             <select
+      //               className="form-control"
+      //               name="Options"
+      //               onChange={categoryHandler}
+      //             >
+      //               <option value="select">--select--</option>
+      //               <option value="None">None</option>
+      //               <option value="Quantity">Quantity</option>
+      //               <option value="List">List</option>
+      //             </select>
+      //           </Col>
 
-                <Col md={12} className="my-3">
-                  <label>Upload Image</label>
-                  <input
-                    type="file"
-                    onChange={categoryHandler}
-                    name="img"
-                  />
+      //           <Col md={12} className="my-3">
+      //             <label>Upload Image</label>
+      //             <input
+      //               type="file"
+      //               onChange={categoryHandler}
+      //               name="img"
+      //             />
 
-                  <img
-                    src=""
-                    style={{ height: "100px", width: "100px" }}
-                    alt="img"
-                    name="Category image"
-                  />
-                </Col>
-              </Row>
-            </Container>
-          </Modal.Body>
-          <Modal.Footer>
-            <input type="submit" value="Submit" />
+      //             <img
+      //               src=""
+      //               style={{ height: "100px", width: "100px" }}
+      //               alt="img"
+      //               name="Category image"
+      //             />
+      //           </Col>
+      //         </Row>
+      //       </Container>
+      //     </Modal.Body>
+      //     <Modal.Footer>
+      //       <input type="submit" value="Submit" />
 
-            <button onClick={styleHandler1}>
-              <i>
-                <FaRegWindowClose />
-              </i>
-              Cancel
-            </button>
-          </Modal.Footer>
-        </form>
-      </Modal.Dialog>
-      <br></br>
+      //       <button onClick={styleHandler1}>
+      //         <i>
+      //           <FaRegWindowClose />
+      //         </i>
+      //         Cancel
+      //       </button>
+      //     </Modal.Footer>
+      //   </form>
+      // </Modal.Dialog>
+      // <br></br>/*}
       {/*========================================End of 1======================================================= */}
       {/*=============================================2=======================================================*/}
       <Modal.Dialog

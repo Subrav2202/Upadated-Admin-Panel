@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "../../Header/Header";
+// import Header from "../../Header/Header";
+import  Navbar  from "../../../Commoncomponents/Navbar/Navbar";
 import Sidebar from "../../Sidebar/Sidebar";
 import Pageheader from "./Pageheader";
 import { Container, Row, Col, Card } from "react-bootstrap";
@@ -8,7 +9,10 @@ import Datatable from "../../Areawise/Datatable";
 function Category() {
   return (
     <div>
-      <Header />
+    {/*<Header /> */} 
+  
+    <Navbar id={"category"}/>
+
       <Container fluid>
         <Row>
           <Col
@@ -42,7 +46,7 @@ function Category() {
                   <Card.Body>
                     <Row>
                       <Col md={12}>
-                        <Datatable id={2}/>
+                        <Datatable id={1}/>
                       </Col>
                     </Row>
                   </Card.Body>

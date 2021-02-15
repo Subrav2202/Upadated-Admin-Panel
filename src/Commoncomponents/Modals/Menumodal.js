@@ -4,10 +4,10 @@ import insert from "./Assets/button.svg";
 import authorise from "./Assets/user.svg";
 import assign from "./Assets/assignment.svg";
 import remove from "./Assets/delete.svg";
-import Whichcenter from "./Whichcenter";
 import { Container, Row, Col } from "react-bootstrap";
+import Insertmodal from "../../Components/ProviderRequest/Category/Insertmodal"
 
-function Menumodal({ show, onHide,name}) {
+function Menumodal({ show, onHide }) {
 
   const [state,setState] = useState(false);
 
@@ -57,7 +57,8 @@ const position={
           <h6>More</h6>
         </Modal.Footer>
       </Modal>
-      {state&&<Whichcenter id={name} show={state} onHide={() => setState(false)}/>}
+      
+      {state&& <Insertmodal show={state} onHide={() => setState(false)}/>}
     </div>
   );
 }

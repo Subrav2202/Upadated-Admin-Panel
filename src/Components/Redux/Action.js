@@ -1,26 +1,89 @@
 import axios from "axios";
+let Category={Category:""};
+let Provider={Provider:""}
+let Center={Center:""}
 
-export const addCenter = (userObj) => {
+export const addACenter = (userObj) => {
+  Center.areawise = userObj;
   return (dispatch) => {
-    if({userObj:""})
-    {
-      alert("please fill all the details");
-    }
-    else{
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/center", userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",Center.areawise)
       .then((response) => {
-        dispatch({
-          type: "ADD_CENTER",
-          payload: response.data,
-        });
+        if (response.data.status === "success") 
+        {
+          alert(response.data.msg);
+        } else if (response.data.status === "unsuccess") 
+        {
+          alert(response.data.error);
+        } else 
+        {
+          alert("Problem in adding center.Please try after some times.");
+        }
       })
       .catch((error) => {
         console.log(error);
       });
-    }
+      dispatch({
+        type:"ADD_ACENTER",
+        payload:Center.areawise,
+      });
   };
 };
+
+export const addDCenter = (userObj) => {
+  Center.divisional = userObj;
+  return (dispatch) => {
+    axios
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",Center.divisional)
+      .then((response) => {
+        if (response.data.status === "success") 
+        {
+          alert(response.data.msg);
+        } else if (response.data.status === "unsuccess") 
+        {
+          alert(response.data.error);
+        } else 
+        {
+          alert("Problem in adding center.Please try after some times.");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      dispatch({
+        type:"ADD_DCENTER",
+        payload:Center.divisional,
+      });
+  };
+};
+
+export const addRCenter = (userObj) => {
+  Center.reagional = userObj;
+  return (dispatch) => {
+    axios
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",Center.reagional)
+      .then((response) => {
+        if (response.data.status === "success") 
+        {
+          alert(response.data.msg);
+        } else if (response.data.status === "unsuccess") 
+        {
+          alert(response.data.error);
+        } else 
+        {
+          alert("Problem in adding center.Please try after some times.");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      dispatch({
+        type:"ADD_RCENTER",
+        payload:Center.reagional,
+      });
+  };
+};
+
 
 export const addProfile = (userObj) => {
   return (dispatch) => {
@@ -40,54 +103,49 @@ export const addProfile = (userObj) => {
 
 export const addReason = (userObj) => {
   return (dispatch) => {
-    if({userObj:""})
-    {
+    if ({ userObj: "" }) {
       alert("Reason cannot be empty.");
       return;
-    }
-    else{
-    axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/center", userObj)
-      .then((response) => {
-        dispatch({
-          type: "ADD_REASON",
-          payload: response.data,
+    } else {
+      axios
+        .post("https://helpearnnode-7uw2e.ondigitalocean.app/center", userObj)
+        .then((response) => {
+          dispatch({
+            type: "ADD_REASON",
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
     }
   };
 };
 
 export const addMessage = (userObj) => {
   return (dispatch) => {
-    if({userObj:""})
-    {
+    if ({ userObj: "" }) {
       alert("message cannot be empty.");
-    }
-    else{
-    axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/center", userObj)
-      .then((response) => {
-        dispatch({
-          type: "ADD_MESSAGE",
-          payload: response.data,
+    } else {
+      axios
+        .post("https://helpearnnode-7uw2e.ondigitalocean.app/center", userObj)
+        .then((response) => {
+          dispatch({
+            type: "ADD_MESSAGE",
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
     }
   };
 };
 
 export const Logindetails = (userObj) => {
-  console.log(userObj);
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/login",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/login", userObj)
       .then((response) => {
         dispatch({
           type: "ADD_LOGIN",
@@ -101,17 +159,28 @@ export const Logindetails = (userObj) => {
 };
 
 export const addCategory = (userObj) => {
+  Category.add = userObj;
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/category",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",Category.add)
       .then((response) => {
-        dispatch({
-          type: "ADD_CATEGORY",
-          payload: response.data,
-        });
+        if (response.data.status === "success") 
+        {
+          alert(response.data.msg);
+        } else if (response.data.status === "unsuccess") 
+        {
+          alert(response.data.error);
+        } else 
+        {
+          alert("Problem in adding Category.Please try after some times.");
+        }
       })
       .catch((error) => {
         console.log(error);
+      });
+      dispatch({
+        type:"ADD_CATEGORY",
+        payload:Category.add,
       });
   };
 };
@@ -119,7 +188,7 @@ export const addCategory = (userObj) => {
 export const addCategorydata = (userObj) => {
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/category",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/category", userObj)
       .then((response) => {
         dispatch({
           type: "ADD_CATEGORYDATA",
@@ -135,7 +204,7 @@ export const addCategorydata = (userObj) => {
 export const addCategoryReason = (userObj) => {
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/category",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/category", userObj)
       .then((response) => {
         dispatch({
           type: "ADD_CATEGORYREASON",
@@ -149,17 +218,28 @@ export const addCategoryReason = (userObj) => {
 };
 
 export const addProvider = (userObj) => {
+  Provider.add = userObj;
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/provider",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/",Provider.add)
       .then((response) => {
-        dispatch({
-          type: "ADD_PROVIDER",
-          payload: response.data,
-        });
+        if (response.data.status === "success") 
+        {
+          alert(response.data.msg);
+        } else if (response.data.status === "unsuccess") 
+        {
+          alert(response.data.error);
+        } else 
+        {
+          alert("Problem in adding Provider.Please try after some times.");
+        }
       })
       .catch((error) => {
         console.log(error);
+      });
+      dispatch({
+        type:"ADD_PROVIDER",
+        payload:Provider.add
       });
   };
 };
@@ -167,7 +247,7 @@ export const addProvider = (userObj) => {
 export const ProviderReason = (userObj) => {
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/provider",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/provider", userObj)
       .then((response) => {
         dispatch({
           type: "ADD_PROVIDER_REASON",
@@ -183,7 +263,7 @@ export const ProviderReason = (userObj) => {
 export const AllCenterReason = (userObj) => {
   return (dispatch) => {
     axios
-      .post("https://helpearnnode-7uw2e.ondigitalocean.app/provider",userObj)
+      .post("https://helpearnnode-7uw2e.ondigitalocean.app/provider", userObj)
       .then((response) => {
         dispatch({
           type: "ADD_ALLCENTERS_REASON",
@@ -195,6 +275,3 @@ export const AllCenterReason = (userObj) => {
       });
   };
 };
-
-
-

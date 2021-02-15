@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
+import  Navbar  from "../../Commoncomponents/Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 import facebook from "./Assets/facebook.svg";
 import google from "./Assets/google-plus.svg";
@@ -38,7 +39,8 @@ import {
 function Dashboard() {
   return (
     <div>
-      <Header />
+     {/* <Header /> */}
+     <Navbar id={"dashboard"}/>
       <Container fluid>
         <Row>
           <Col

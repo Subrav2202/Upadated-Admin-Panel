@@ -5,15 +5,16 @@ import {
   useGlobalFilter,
   usePagination,
 } from "react-table";
-import {Datatabledata} from "./Datatabledata";
+import Datatabledata  from "./Datatabledata";
 import { COLUMNS } from "./columns";
 import "./Table.css";
 import { BiDownArrowAlt, BiUpArrowAlt } from "react-icons/bi";
 
 function Datatable({ id }) {
   const columns = useMemo(() => COLUMNS[id], [id]);
-  const data = useMemo(() => Datatabledata[id], [id]);
-
+  const Data=Datatabledata(id=id); 
+  const data = useMemo(() =>[Data],[]);
+  console.log(data);
   const {
     getTableProps,
     getTableBodyProps,

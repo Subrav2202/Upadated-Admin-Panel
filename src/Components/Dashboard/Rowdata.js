@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React  from "react";
 import image from "./Assets/product.png";
 import { GoPrimitiveDot } from "react-icons/go";
 
-function Rowdata({ no, quantity, price, time, customer, status}) {
-  const [state, setstate] = useState({ color: "green" });
-//   const colorseter=()=>{
-//       setstate({color:"yellow"})
-//   }
+function Rowdata({ no, quantity, price, time, customer, status }) {
+ 
   return (
     <tr>
       <td>{no}</td>
@@ -21,7 +18,7 @@ function Rowdata({ no, quantity, price, time, customer, status}) {
       <td>{customer}</td>
       <td>
         <i>
-          <GoPrimitiveDot color={state.color} />
+          <GoPrimitiveDot />
         </i>
         {status}
       </td>

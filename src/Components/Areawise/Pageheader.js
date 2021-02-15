@@ -2,49 +2,49 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Modal from "react-bootstrap/Modal";
 import { Button, Form } from "react-bootstrap";
-import { FaSave, FaEdit } from "react-icons/fa";
+import {  FaEdit } from "react-icons/fa";
 import img1 from "./Assets/user.jpg";
-import { addCenter, addProfile, addReason, addMessage } from "../Redux/Action";
+import { addProfile, addReason, addMessage } from "../Redux/Action";
 
 function Pageheader() {
 
   /*-----------------------------------------states for center Modal Save button----------------------------------------------------------------------- */
-  const [centerstate, setcenterstate] = useState({
-    Shop: "",
-    Owner: "",
-    Contact: "",
-    Email: "",
-    Lattitude: "",
-    Longitude: "",
-    Address: "",
-    Landmark: "",
-    City: "",
-    State: "",
-  });
-  const centerChangeHandler = (e) => {
-    const name=e.target.name;
-    const value=e.target.value; 
-    setcenterstate({...centerstate,[name]:value});
-    console.log({[name]:value})
-  };
-  const dispatch = useDispatch();
+  // const [centerstate, setcenterstate] = useState({
+  //   Shop: "",
+  //   Owner: "",
+  //   Contact: "",
+  //   Email: "",
+  //   Lattitude: "",
+  //   Longitude: "",
+  //   Address: "",
+  //   Landmark: "",
+  //   City: "",
+  //   State: "",
+  // });
+  // const centerChangeHandler = (e) => {
+  //   const name=e.target.name;
+  //   const value=e.target.value; 
+  //   setcenterstate({...centerstate,[name]:value});
+  //   console.log({[name]:value})
+  // };
+   const dispatch = useDispatch();
 
-  const centersubmitHandler = (e) => {
-    e.preventDefault();
-    dispatch(addCenter({centerstate}));
-    setcenterstate({
-    Shop:"",
-    Owner:"",
-    Contact:"",
-    Email:"",
-    Lattitude:"",
-    Longitude:"",
-    Address:"",
-    Landmark:"",
-    City:"",
-    State:"",
-    });
-  };
+  // const centersubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   dispatch(addCenter({centerstate}));
+  //   setcenterstate({
+  //   Shop:"",
+  //   Owner:"",
+  //   Contact:"",
+  //   Email:"",
+  //   Lattitude:"",
+  //   Longitude:"",
+  //   Address:"",
+  //   Landmark:"",
+  //   City:"",
+  //   State:"",
+  //   });
+  // };
 
   const [profilestate, setprofilestate] = useState({
     Name: "",
@@ -118,16 +118,16 @@ function Pageheader() {
     inputNormal: { display: "inline" },
     inputClicked: { display: "none" },
   };
-  const [state1, setstate1] = useState({ clicked: true });
+  // const [state1, setstate1] = useState({ clicked: true });
   const [state2, setstate2] = useState({ clicked: true });
   const [state3, setstate3] = useState({ clicked: true });
   const [state4, setstate4] = useState({ clicked: true });
   const [state5, setstate5] = useState({ clicked: true });
   const [state6, setstate6] = useState({ clicked: true });
 
-  const styleHandler1 = () => {
-    setstate1({ clicked: false });
-  };
+  // const styleHandler1 = () => {
+  //   setstate1({ clicked: false });
+  // };
   const styleHandler2 = () => {
     setstate2({ clicked: false });
   };
@@ -155,182 +155,182 @@ const [disablestate, setdisable] = useState({disabled:true})
   return (
     <div className="container-fluid">
       {/*----------------------------------------------1---------------------------------------------*/}
-      <Modal.Dialog
-        size="lg"
-        style={state1.clicked ? Styles.inputNormal : Styles.inputClicked}
-      >
-        <Form onSubmit={centersubmitHandler}>
-          <Modal.Header>
-            <Modal.Title style={{ color: "#00bcd4", margin: "auto" }}>
-              Areawise Service Centers
-            </Modal.Title>
-          </Modal.Header>
+      {/* <Modal.Dialog 
+      //   size="lg"
+      //   style={state1.clicked ? Styles.inputNormal : Styles.inputClicked}
+      // >
+      //   <Form onSubmit={centersubmitHandler}>
+      //     <Modal.Header>
+      //       <Modal.Title style={{ color: "#00bcd4", margin: "auto" }}>
+      //         Areawise Service Centers
+      //       </Modal.Title>
+      //     </Modal.Header>
 
-          <Modal.Body>
-            <div className="container">
-              <div className="row">
-                <input type="hidden" name="" id="txtCenterId" />
-                <div className="col-md-6">
-                  <label for="txtCname">
-                    <b>Shop</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtCname"
-                    type="text"
-                    placeholder="Enter Shop Name"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Shop}
-                    name="Shop"
-                  />
-                </div>
+      //     <Modal.Body>
+      //       <div className="container">
+      //         <div className="row">
+      //           <input type="hidden" name="" id="txtCenterId" />
+      //           <div className="col-md-6">
+      //             <label for="txtCname">
+      //               <b>Shop</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtCname"
+      //               type="text"
+      //               placeholder="Enter Shop Name"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Shop}
+      //               name="Shop"
+      //             />
+      //           </div>
 
-                <div className="col-md-6">
-                  <label for="txtOwner">
-                    <b>Owner</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtOwner"
-                    type="text"
-                    placeholder="Enter Owner Name"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Owner}
-                    name="Owner"
-                  />
-                </div>
+      //           <div className="col-md-6">
+      //             <label for="txtOwner">
+      //               <b>Owner</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtOwner"
+      //               type="text"
+      //               placeholder="Enter Owner Name"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Owner}
+      //               name="Owner"
+      //             />
+      //           </div>
 
-                <div className="col-md-6">
-                  <label for="txtContact">
-                    <b>Contact</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtContact"
-                    type="text"
-                    placeholder="Enter contact Name"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Contact}
-                    name="Contact"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtEmail">
-                    <b>Email</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtEmail"
-                    type="text"
-                    placeholder="Enter Email Name"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Email}
-                    name="Email"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtLattitude">
-                    <b>Latitude</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtLattitude"
-                    type="latti"
-                    placeholder="allow notification for lattitude"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Lattitude}
-                    name="Lattitude"
-                    readOnly
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtLongitude">
-                    <b>Longitude</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtLongitude"
-                    type="text"
-                    placeholder="Allow Notification for longitude"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Longitude}
-                    name="Longitude"
-                    readOnly
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtAddress">
-                    <b>Address</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtAddress"
-                    type="text"
-                    placeholder="Enter Address Name"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Address}
-                    name="Address"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtLocation">
-                    <b>Landmark</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    id="txtLocation"
-                    type="text"
-                    placeholder="Enter Address Name"
-                    onChange={centerChangeHandler}
-                    value={centerstate.Landmark}
-                    name="Landmark"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtCity">
-                    <b>City</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter City Name"
-                    id="txtCity"
-                    onChange={centerChangeHandler}
-                    value={centerstate.City}
-                    name="City"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label for="txtState">
-                    <b>State</b>
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter State Name"
-                    id="txtState"
-                    onChange={centerChangeHandler}
-                    value={centerstate.State}
-                    name="State"
-                  />
-                </div>
-              </div>
-            </div>
-          </Modal.Body>
+      //           <div className="col-md-6">
+      //             <label for="txtContact">
+      //               <b>Contact</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtContact"
+      //               type="text"
+      //               placeholder="Enter contact Name"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Contact}
+      //               name="Contact"
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtEmail">
+      //               <b>Email</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtEmail"
+      //               type="text"
+      //               placeholder="Enter Email Name"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Email}
+      //               name="Email"
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtLattitude">
+      //               <b>Latitude</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtLattitude"
+      //               type="latti"
+      //               placeholder="allow notification for lattitude"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Lattitude}
+      //               name="Lattitude"
+      //               readOnly
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtLongitude">
+      //               <b>Longitude</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtLongitude"
+      //               type="text"
+      //               placeholder="Allow Notification for longitude"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Longitude}
+      //               name="Longitude"
+      //               readOnly
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtAddress">
+      //               <b>Address</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtAddress"
+      //               type="text"
+      //               placeholder="Enter Address Name"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Address}
+      //               name="Address"
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtLocation">
+      //               <b>Landmark</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               id="txtLocation"
+      //               type="text"
+      //               placeholder="Enter Address Name"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.Landmark}
+      //               name="Landmark"
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtCity">
+      //               <b>City</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               type="text"
+      //               placeholder="Enter City Name"
+      //               id="txtCity"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.City}
+      //               name="City"
+      //             />
+      //           </div>
+      //           <div className="col-md-6">
+      //             <label for="txtState">
+      //               <b>State</b>
+      //             </label>
+      //             <input
+      //               className="form-control"
+      //               type="text"
+      //               placeholder="Enter State Name"
+      //               id="txtState"
+      //               onChange={centerChangeHandler}
+      //               value={centerstate.State}
+      //               name="State"
+      //             />
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </Modal.Body>
 
-          <Modal.Footer>
-            <Button variant="secondary" onClick={styleHandler1}>
-              Close
-            </Button>
-            <Button variant="primary" type="submit">
-              <i>
-                <FaSave />
-                Save
-              </i>
-            </Button>
-          </Modal.Footer>
-        </Form>
-      </Modal.Dialog>
+      //     <Modal.Footer>
+      //       <Button variant="secondary" onClick={styleHandler1}>
+      //         Close
+      //       </Button>
+      //       <Button variant="primary" type="submit">
+      //         <i>
+      //           <FaSave />
+      //           Save
+      //         </i>
+      //       </Button>
+      //     </Modal.Footer>
+      //   </Form>
+      // </Modal.Dialog>
       {/*----------------------------------------------1 end---------------------------------------------*/}
       {/*----------------------------------------------2---------------------------------------------*/}
 

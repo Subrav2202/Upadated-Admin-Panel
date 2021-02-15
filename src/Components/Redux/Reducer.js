@@ -1,16 +1,14 @@
-const Reducer = (state = {}, action) => {
+const Reducer = (
+  state = { Category: "",Center:"", Provider: "" },
+  action
+) => {
   switch (action.type) {
-    case "ADD_CENTER":
-      const centers = action.payload;
-      if (centers.status === "success") {
-        alert(centers.msg);
-      } else if (centers.status === "unsuccess") {
-        alert(centers.error);
-      } else {
-        alert("Problem in adding servicecenter.");
-      }
-
-      return { ...state, centers };
+    case "ADD_ACENTER":
+      return { ...state,Center: action.payload };
+      case "ADD_DCENTER":
+      return { ...state,Center:action.payload };
+      case "ADD_RCENTER":
+      return { ...state,Center: action.payload };
 
     case "ADD_USER":
       const user = action.payload;
@@ -47,90 +45,66 @@ const Reducer = (state = {}, action) => {
 
     case "ADD_LOGIN":
       const login = action.payload;
-      console.log(login);
       if (login.status === "success") {
-         alert(login.msg);
-         sessionStorage.setItem("token",login.token);
+        alert(login.msg);
+        sessionStorage.setItem("token", login.token);
       } else if (login.status === "unsuccess") {
         alert(login.error);
       } else {
-        alert("Problem in login. Please try after 30 minutes.");
+        alert("Problem in login.Please try after 30 minutes.");
       }
 
       return { ...state, login };
 
-      case "ADD_CATEGORY":
-      const Category = action.payload;
-      console.log('clicked');
-      if (Category.status === "success") {
-         alert(Category.msg);
-      } else if (Category.status === "unsuccess") {
-        alert(Category.error);
+    case "ADD_CATEGORY":
+      return { ...state,Category: action.payload };
+
+    case "ADD_CATEGORYDATA":
+      const Categorydata = action.payload;
+      if (Categorydata.status === "success") {
+        alert(Categorydata.msg);
+      } else if (Categorydata.status === "unsuccess") {
+        alert(Categorydata.error);
       } else {
-        alert("Problem in adding Category. Please try after some times.");
+        alert("Problem in adding Categorydata. Please try after some times.");
       }
-      return { ...state, Category };
+      return { ...state, Categorydata };
 
-      case "ADD_CATEGORYDATA":
-        const Categorydata = action.payload;
-        console.log('clicked');
-        if (Categorydata.status === "success") {
-           alert(Categorydata.msg);
-        } else if (Categorydata.status === "unsuccess") {
-          alert(Categorydata.error);
-        } else {
-          alert("Problem in adding Categorydata. Please try after some times.");
-        }
-        return { ...state, Categorydata };
+    case "ADD_CATEGORYREASON":
+      const Categoryreason = action.payload;
+      if (Categoryreason.status === "success") {
+        alert(Categoryreason.msg);
+      } else if (Categoryreason.status === "unsuccess") {
+        alert(Categoryreason.error);
+      } else {
+        alert("Problem in adding Categoryreason. Please try after some times.");
+      }
+      return { ...state, Categoryreason };
 
-        case "ADD_CATEGORYREASON":
-          const Categoryreason = action.payload;
-          console.log('clicked');
-          if (Categoryreason.status === "success") {
-             alert(Categoryreason.msg);
-          } else if (Categoryreason.status === "unsuccess") {
-            alert(Categoryreason.error);
-          } else {
-            alert("Problem in adding Categoryreason. Please try after some times.");
-          }
-          return { ...state, Categoryreason };
+    case "ADD_PROVIDER":
+      return { ...state,Provider: action.payload };
 
-          case "ADD_PROVIDER":
-            const provider = action.payload;
-            console.log('clicked');
-            if (provider.status === "success") {
-               alert(provider.msg);
-            } else if (provider.status === "unsuccess") {
-              alert(provider.error);
-            } else {
-              alert("Problem in adding provider.");
-            }
-            return { ...state, provider };
-          
-            case "ADD_PROVIDER_REASON":
-              const providerreason = action.payload;
-              console.log('clicked');
-              if (providerreason.status==="success") {
-                 alert(providerreason.msg);
-              } else if (providerreason.status==="unsuccess") {
-                alert(providerreason.error);
-              } else {
-                alert("Problem in adding provider reason.");
-              }
-              return { ...state, providerreason };
+    case "ADD_PROVIDER_REASON":
+      const providerreason = action.payload;
+      if (providerreason.status === "success") {
+        alert(providerreason.msg);
+      } else if (providerreason.status === "unsuccess") {
+        alert(providerreason.error);
+      } else {
+        alert("Problem in adding provider reason.");
+      }
+      return { ...state, providerreason };
 
-              case "ADD_ALLCENTERS_REASON":
-                const Allcentersreason = action.payload;
-                console.log('clicked');
-                if (Allcentersreason.status==="success") {
-                   alert(Allcentersreason.msg);
-                } else if (Allcentersreason.status==="unsuccess") {
-                  alert(Allcentersreason.error);
-                } else {
-                  alert("Problem in adding Allcenters reason.");
-                }
-                return { ...state, Allcentersreason };
-    
+    case "ADD_ALLCENTERS_REASON":
+      const Allcentersreason = action.payload;
+      if (Allcentersreason.status === "success") {
+        alert(Allcentersreason.msg);
+      } else if (Allcentersreason.status === "unsuccess") {
+        alert(Allcentersreason.error);
+      } else {
+        alert("Problem in adding Allcenters reason.");
+      }
+      return { ...state, Allcentersreason };
 
     default:
       return state;

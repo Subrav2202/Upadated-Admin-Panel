@@ -6,10 +6,8 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import Datatable from "./Areawise/Datatable";
 import "./Areawise/Table.css";
 
-function Commongrid({id,title,p1,p2,header}) {
+function Commongrid({title,p1,p2,header}) {
     return (
-        <div>
-        <Header />
         <Container fluid>
           <Row>
             <Col
@@ -44,7 +42,7 @@ function Commongrid({id,title,p1,p2,header}) {
                     <Card.Body>
                       <Row>
                         <Col md={12}>
-                          <Datatable id={id}/>
+                          <Datatable id={0}/>
                         </Col>
                       </Row>
                     </Card.Body>
@@ -54,7 +52,6 @@ function Commongrid({id,title,p1,p2,header}) {
             </Col>
           </Row>
         </Container>
-        </div>
     )
 }
 

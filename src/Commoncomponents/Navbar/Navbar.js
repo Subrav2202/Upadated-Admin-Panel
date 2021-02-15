@@ -1,13 +1,14 @@
 import React,{useState} from "react";
 import {Container,Row,Col} from "react-bootstrap";
-import notification from "../Header/Assets/bell.svg"
-import menu from "../Header/Assets/menu.svg"
-import Profile from "../Header/Assets/Profile.jpg"
-import Menumodal from "./Modals/Menumodal"
-import Notificationmodal from "./Modals/Notificationmodal"
-import Profilemodal from "./Modals/Profilemodal"
+import notification from "../Assets/bell.svg";
+import menu from "../Assets/menu.svg"
+import Profile from "../Assets/Profile.jpg"
+//import Menumodal from "../Modals/Menumodal"
+import  Whichmenumodal  from "./Whichmenumodal";
+import Notificationmodal from "../Modals/Notificationmodal"
+import Profilemodal from "../Modals/Profilemodal"
 
-function Header({id}) {
+function Navbar({id}) {
 
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -48,10 +49,10 @@ function Header({id}) {
             </Row>
       </Container>
       {show1 && <Notificationmodal show={show1} onHide={() => setShow1(false)}/>}
-      {show2 && <Menumodal name={id} show={show2} onHide={() => setShow2(false)}/>}
+      {show2 && <Whichmenumodal id={id} show={show2} onHide={() => setShow2(false)}/>}
       {show3 && <Profilemodal show={show3} onHide={() => setShow3(false)}/>}
         </div>
     )
 }
 
-export default Header
+export default Navbar

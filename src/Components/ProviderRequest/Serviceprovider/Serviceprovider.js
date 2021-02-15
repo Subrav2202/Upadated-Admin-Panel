@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "../../Header/Header";
+// import Header from "../../Header/Header";
+import  Navbar  from "../../../Commoncomponents/Navbar/Navbar";
 import Sidebar from "../../Sidebar/Sidebar";
 import PageHeader from "./PageHeader";
 import { Container, Row, Col, Card, Breadcrumb } from "react-bootstrap";
@@ -8,7 +9,8 @@ import Datatable from "../../Areawise/Datatable";
 function Serviceprovider() {
   return (
     <div>
-      <Header />
+    {/*  <Header />*/}
+    <Navbar id={"serviceprovider"}/>
       <Container fluid>
         <Row>
           <Col
